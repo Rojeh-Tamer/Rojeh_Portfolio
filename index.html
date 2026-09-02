@@ -50,13 +50,15 @@
   }
   nav.wrap{
     display:flex; align-items:center; justify-content:space-between;
-    height:64px;
+    flex-wrap:wrap; row-gap:12px;
+    min-height:64px; padding-top:10px; padding-bottom:10px;
   }
   .logo{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px; }
   .logo span{ color:var(--cyan); }
-  .navlinks{ display:flex; gap:28px; list-style:none; }
+  .navlinks{ display:flex; flex-wrap:wrap; gap:28px; list-style:none; }
   .navlinks a{
     text-decoration:none; color:var(--text-dim); font-size:14.5px;
+    white-space:nowrap;
     transition:color .2s ease;
   }
   .navlinks a:hover{ color:var(--text); }
@@ -64,9 +66,9 @@
     background:transparent; border:1px solid var(--line); color:var(--text);
     padding:8px 16px; border-radius:6px; font-size:14px; font-family:'Inter',sans-serif;
     cursor:pointer; text-decoration:none; transition:border-color .2s ease, color .2s ease;
+    white-space:nowrap;
   }
   .nav-cta:hover{ border-color:var(--cyan); color:var(--cyan); }
-  .navtoggle{ display:none; background:none; border:none; color:var(--text); font-size:22px; cursor:pointer; }
 
   /* ---------- Hero ---------- */
   .hero{
@@ -306,7 +308,31 @@
     .about-grid, .skills-grid, .project, .project.reverse{ grid-template-columns:1fr; }
     .project.reverse .project-media, .project.reverse .project-copy{ order:0; }
     .service-row{ grid-template-columns:1fr; gap:10px; }
-    .navlinks{ display:none; }
+    .navlinks{
+      order:3; flex:1 1 100%;
+      justify-content:center;
+      gap:22px;
+    }
+  }
+
+  @media (max-width:520px){
+    .wrap{ padding:0 20px; }
+    nav.wrap{ padding-top:12px; padding-bottom:12px; }
+    .logo{ font-size:15px; }
+    .nav-cta{ padding:7px 12px; font-size:13px; }
+    .navlinks{ gap:16px; }
+    .navlinks a{ font-size:13.5px; }
+    .hero{ padding:64px 0 64px; }
+    .portrait-ring{ width:132px; height:132px; }
+    .portrait-name{ font-size:19px; }
+    .hero h1{ font-size:clamp(28px, 7vw, 36px); }
+    .hero p.lead{ font-size:16px; }
+    section{ padding:60px 0; }
+    .skill-col{ padding:22px 20px; }
+    .project{ padding:40px 0; gap:28px; }
+    .project-copy h3{ font-size:20px; }
+    .contact-links{ gap:10px; }
+    .btn-primary, .btn-ghost, .btn-amber{ padding:12px 20px; font-size:14px; }
   }
 </style>
 </head>
